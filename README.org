@@ -1,0 +1,20 @@
+#+TITLE: K3S lab
+#+AUTHOR: flaviogf
+#+DATE: [2022-12-27 Tue]
+
+It is a simple lab to test K3S running on multiples VMs.
+
+** How to run
+
+*** K3S server
+#+begin_src bash
+vagrant up nodea
+vagrant ssh nodea -c 'sudo cat /var/lib/rancher/k3s/server/node-token' # retrieve K3S_TOKEN
+#+end_src
+
+*** K3S agent
+Before executing the command below, set the K3S_TOKEN inside [[file:Vagrantfile][Vagrantfile]]
+
+#+begin_src bash
+vagrant up nodeb
+#+end_src
